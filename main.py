@@ -1,11 +1,11 @@
 import time
 import logging
-import sqlite3
 import datetime
 
 import requests
 import schedule
 
+from mysql.connector import connect, Error
 
 from bs4 import BeautifulSoup
 
@@ -14,7 +14,12 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 URL = 'https://steamcommunity.com/profiles/76561199002236170'
 
-db = sqlite3.connect('db.sqlite3')
+db = connect(
+    host='sql11.freemysqlhosting.net',
+    user='sql11467004',
+    password='VWm8aG81Ip',
+    database='sql11467004'
+)
 
 
 def get_html(session: requests.Session, url: str):
