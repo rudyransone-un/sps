@@ -88,7 +88,7 @@ def init_db():
     
 if __name__ == '__main__':
     init_db()
-    schedule.every(30).minutes.do(main)
+    schedule.every(1).minutes.do(main)
 
     logger.info('for')
     while True:
