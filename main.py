@@ -77,7 +77,7 @@ def init_db():
     cursor = db.cursor()
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS users(
-            ID INTEGER PRIMARY KEY AUTOINCREMNT,
+            ID INTEGER PRIMARY KEY AUTOINCREMENT,
             username VARCHAR(255),
             status VARCHAR(255),
             createdAt DATETIME
