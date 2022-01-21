@@ -73,8 +73,22 @@ def main():
     save_staus(session, URL)
 
 
+def init_db():
+    cursor = db.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS users(
+            ID INTEGER PRIMARY KEY AUTOINCREMNT,
+            username VARCHAR(255),
+            status VARCHAR(255),
+            createdAt DATETIME
+        )
+    ''')
+    db.commit()
+    
+    
 if __name__ == '__main__':
-    schedule.every(1).minutes.do(main)
+    init_db()
+    schedule.every(30).minutes.do(main)
 
     logger.info('for')
     while True:
